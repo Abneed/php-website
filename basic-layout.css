@@ -1,0 +1,9 @@
+.navbar {
+    border: 6px solid black;
+    border-radius: 12px;
+    padding: 6px;
+}
+
+div.button {
+    text-align: right;
+}
