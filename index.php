@@ -5,18 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Inicio | PHP Website</title>
-    <style>
-        .navbar
-        {
-            border: 6px solid black;
-            border-radius: 12px;
-            padding: 6px;
-        }
-        div.button
-        {
-            text-align: right;
-        }
-    </style>
+    <link rel="stylesheet" href="basic-layout.css">
 </head>
 <body>
     <div class="navbar">
