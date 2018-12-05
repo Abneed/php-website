@@ -1,15 +1,15 @@
 <?php
 session_start();
 
-// $servername = "localhost";
-// $username = "root";
-// $password = "";
-// $dbname = "ProgramacionWebDB";
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "ProgramacionWebDB";
 
-$servername = "198.71.236.19";
-$username = "Web2K18";
-$password = "@dm1n1str@d0r";
-$dbname = "ProgramacionWeb";
+// $servername = "198.71.236.19";
+// $username = "Web2K18";
+// $password = "@dm1n1str@d0r";
+// $dbname = "ProgramacionWeb";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
