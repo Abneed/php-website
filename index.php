@@ -39,14 +39,23 @@ session_start();
             echo "<h2>Bienvenido ha PHP Website" . $TipoUsuario . "</h2>";
             if($TipoUsuario == "")
             {
-                echo '<div class="button"><a href="signup.php">Registrarse</a></div>
+                echo '
                 <div class="button">
-                <a href="signin.php">Iniciar sesión</a>
+                    <a href="signup.php">Registrarse</a></div>
+                <div class="button">
+                    <a href="signin.php">Iniciar sesión</a>
                 </div>';
             }
             else
             {
-                echo '<div class="button"><a href="profile.php">Perfil</a></div>';
+                echo '
+                <div class="button">
+                    <a href="profile.php">Mi perfil</a>
+                </div>
+                <div class="button">
+                    <a href="close_session.php">Cerrar sesión</a>
+                </div>
+                ';
             }
         ?>
     </div>
@@ -71,8 +80,8 @@ session_start();
                 
             }
             else if($_SESSION["user"]["usuario"] != "") {
-                echo "<h3>Usuario:" . $_SESSION["user"]["usuario"] . "</h3>";
-                echo "<h3>Visitas:" . $_SESSION["user"]["visitas"] . "</h3>";
+                echo "<h3>Usuario: " . $_SESSION["user"]["usuario"] . "</h3>";
+                echo "<h3>Visitas: " . $_SESSION["user"]["visitas"] . "</h3>";
             }
         }
     ?>
