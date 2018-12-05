@@ -10,6 +10,19 @@ session_start();
             $Tipo_Usuario = $_SESSION['user']['Tipo_Usuario'];
         }
     }
+    $TipoUsuario = "";
+    
+    if ($_SESSION != null) {
+        if (is_string($_SESSION["user"])) {
+            
+        }
+        else if($_SESSION["user"]["Tipo_Usuario"] == "A") {
+            $TipoUsuario = " - Administrador";
+        }
+        else{
+            $TipoUsuario = " - Usuario Normal";
+        }
+    }       
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -22,7 +35,9 @@ session_start();
 </head>
 <body>
     <div class="navbar">
-        <h2>Bienvenido ha PHP Website</h2>
+        <?php
+            echo "<h2>Bienvenido ha PHP Website" . $TipoUsuario . "</h2>"
+        ?>
         <div class="button">
             <a href="signup.php">Registrarse</a>
         </div>
@@ -30,20 +45,31 @@ session_start();
             <a href="signin.php">Iniciar sesión</a>
         </div>
     </div>
+        <?php
+            if ($_SESSION != null) {
+                if (is_string($_SESSION["user"])) {
+                    echo "<h3>" . $_SESSION["user"] . "</h3>";
+                    unset($_SESSION['user']);
+                }
+                else if($_SESSION["user"]["mensaje"] != "") {
+                    echo "<h3>" . $_SESSION["user"]["mensaje"] . "</h3>";
+                    $_SESSION["user"]["mensaje"] = "";
+                }
+            }
+        ?>
+    <p>
+        Proyecto final para la asignatura "Programacion Web".  
+    </p>
     <?php
         if ($_SESSION != null) {
             if (is_string($_SESSION["user"])) {
-                echo "<h3>" . $_SESSION["user"] . "</h3>";
-                unset($_SESSION['user']);
+                
             }
-            else if($_SESSION["user"]["mensaje"] != "") {
-                echo "<h3>" . $_SESSION["user"]["mensaje"] . "</h3>";
-                $_SESSION["user"]["mensaje"] = "";
+            else if($_SESSION["user"]["usuario"] != "") {
+                echo "<h3>Usuario:" . $_SESSION["user"]["usuario"] . "</h3>";
+                echo "<h3>Visitas:" . $_SESSION["user"]["visitas"] . "</h3>";
             }
         }
     ?>
-    <p>
-        Proyecto final para la asignatura "Programacion Web".
-    </p>
 </body>
 </html>
