@@ -30,25 +30,17 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Inicio | PHP Website</title>
+    <title>Perfil | PHP Website</title>
     <link rel="stylesheet" href="basic-layout.css">
 </head>
 <body>
     <div class="navbar">
         <?php
-            echo "<h2>Bienvenido ha PHP Website" . $TipoUsuario . "</h2>";
-            if($TipoUsuario == "")
-            {
-                echo '<div class="button"><a href="signup.php">Registrarse</a></div>
-                <div class="button">
-                <a href="signin.php">Iniciar sesión</a>
-                </div>';
-            }
-            else
-            {
-                echo '<div class="button"><a href="profile.php">Perfil</a></div>';
-            }
+            echo "<h2>Perfil" . $TipoUsuario . "</h2>"
         ?>
+        <div class="button">
+            <a href="index.php">Inicio</a>
+        </div>
     </div>
         <?php
             if ($_SESSION != null) {
@@ -71,8 +63,8 @@ session_start();
                 
             }
             else if($_SESSION["user"]["usuario"] != "") {
-                echo "<h3>Usuario:" . $_SESSION["user"]["usuario"] . "</h3>";
-                echo "<h3>Visitas:" . $_SESSION["user"]["visitas"] . "</h3>";
+                echo "<h3>Usuario: " . $_SESSION["user"]["usuario"] . "</h3>";
+                echo "<h3>Visitas: " . $_SESSION["user"]["visitas"] . "</h3>";
             }
         }
     ?>

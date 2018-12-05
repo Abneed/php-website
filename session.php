@@ -55,7 +55,7 @@ if (mysqli_num_rows($result) > 0)
 }
 else
 {
-    $_SESSION["user"] = "El usuario ya existe.";
+    $_SESSION["user"] = "El usuario no existe.";
     header( 'Location: signin.php' ); 
 }
 ?>
