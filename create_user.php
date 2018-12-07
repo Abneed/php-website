@@ -17,11 +17,13 @@ $usuario = $_POST['usuario'];
 $password = $_POST['password'];
 $nombre = $_POST['nombre'];
 $Tipo_Usuario = $_POST['tipo_usuario'];
+$Imagen = $_FILES['avatar']['tmp_name'];
+$ImagenData = base64_encode(file_get_contents($Imagen));
 
-$select_sql = "SELECT usuario, nombre, visitas, Tipo_Usuario FROM acceso WHERE usuario = '" . $usuario . "'";
+$select_sql = "SELECT usuario, nombre, visitas, Tipo_Usuario, Imagen FROM acceso WHERE usuario = '$usuario'";
 
-$insert_sql = "INSERT INTO acceso (usuario, password, nombre, visitas, Tipo_Usuario) 
-VALUES('" . $usuario . "','" . $password . "','" . $nombre . "'," . 1 . ",'" . $Tipo_Usuario ."')";
+$insert_sql = "INSERT INTO acceso (usuario, password, nombre, visitas, Tipo_Usuario, Imagen) 
+VALUES( '$usuario', '$password', '$nombre', 1, '$Tipo_Usuario', '$ImagenData')";
 
 $result = $conn->query($select_sql);
 // Verificar en la base de datos si el usuario existe.
@@ -41,7 +43,8 @@ else
         while($row = mysqli_fetch_assoc($result))
         {
             $_SESSION["user"] = $row;
-            $_SESSION["user"]["mensaje"] = "¡Registro completado!";
+            $_SESSION["user"]["mensaje"] = "¡Registro de usuario exitosa!";
+            
             header( 'Location: index.php' ); 
         }
     } 

@@ -16,7 +16,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 $usuario = $_POST['usuario'];
 $password = $_POST['password'];
 
-$select_sql = "SELECT usuario, password, nombre, visitas, Tipo_Usuario FROM acceso WHERE usuario = '" . $usuario . "'";
+$select_sql = "SELECT usuario, password, nombre, visitas, Tipo_Usuario, Imagen FROM acceso WHERE usuario = '$usuario'";
 
 $result = $conn->query($select_sql);
 
@@ -30,7 +30,7 @@ if (mysqli_num_rows($result) > 0)
         {
             $visitas = $row["visitas"];
             $visitas += 1;
-            $update_sql = "UPDATE acceso SET visitas = ". $visitas . " WHERE usuario = '" . $usuario . "'";
+            $update_sql = "UPDATE acceso SET visitas = ". $visitas . " WHERE usuario = '$usuario'";
             if ($conn->query($update_sql) == TRUE) 
             {
                 $_SESSION["user"] = $row;
