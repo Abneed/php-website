@@ -8,6 +8,7 @@ session_start();
             $nombre = $_SESSION['user']['nombre'];
             $visitas = $_SESSION['user']['visitas'];
             $Tipo_Usuario = $_SESSION['user']['Tipo_Usuario'];
+            $Imagen = $_SESSION['user']['Imagen'];
         }
     }
     $TipoUsuario = "";
@@ -37,11 +38,15 @@ session_start();
     <div class="navbar">
         <?php
             echo "<h2>Bienvenido ha PHP Website" . $TipoUsuario . "</h2>";
+        ?>
+        <div class="nav-wrapper">
+        <?php
             if($TipoUsuario == "")
             {
                 echo '
                 <div class="button">
-                    <a href="signup.php">Registrarse</a></div>
+                    <a href="signup.php">Registrarse</a>
+                </div>
                 <div class="button">
                     <a href="signin.php">Iniciar sesión</a>
                 </div>';
@@ -49,6 +54,11 @@ session_start();
             else
             {
                 echo '
+                <div class="profile-image">
+                    <a href="profile.php">
+                        <img src="data:image/jpeg;base64,'. $Imagen .'" alt="Foto de perfil" srcset="">
+                    </a>
+                </div>
                 <div class="button">
                     <a href="profile.php">Mi perfil</a>
                 </div>
@@ -58,6 +68,7 @@ session_start();
                 ';
             }
         ?>
+        </div>
     </div>
         <?php
             if ($_SESSION != null) {
