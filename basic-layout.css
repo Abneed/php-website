@@ -1,9 +1,74 @@
+body {
+    margin: 25px;
+}
+
 .navbar {
     border: 6px solid black;
     border-radius: 12px;
     padding: 6px;
+    overflow: hidden;
 }
 
 div.button {
     text-align: right;
+}
+
+.nav-wrapper {
+    text-align: right;
+}
+
+.box-wrapper {
+    text-align: center;
+}
+
+.form-container {
+    border: 6px solid black;
+    display: inline-block;
+    margin: 20px;
+    padding: 12px;
+    text-align: left;
+}
+
+.form-container img {
+    max-width: 256px;
+    height: auto;
+}
+
+.profile-image {
+    border-radius: 4px;
+    display: inline-block;
+    padding: 5px;
+    margin: 2px;
+    overflow: visible;
+}
+
+.profile-image img {
+    max-width: 128px;
+    height: auto;
+}
+
+.home-image {
+    display: inline-block;
+    height: auto;
+    text-align: left;
+    padding: 5px;
+    overflow: hidden;
+    max-width: 128px;
+}
+
+.profile-image:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+.profile-info {
+    border: 6px solid black;
+    display: inline-block;
+    margin: 20px;
+    padding: 12px;
+    text-align: center;
+}
+
+.profile-info img {
+    max-width: 256px;
+    height: auto;
 }
