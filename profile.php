@@ -79,6 +79,9 @@ session_start();
         <div>
             <a href="update_profile.php">Actualizar perfil</a>
         </div>
+        <div>
+            <a href="delete_user.php">Eliminar perfil</a>
+        </div>
         </div>
     </div>
 </body>
