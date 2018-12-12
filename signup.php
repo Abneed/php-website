@@ -28,12 +28,18 @@ session_start();
                         echo "<h3>" . $_SESSION["user"] . "</h3>";
                         unset($_SESSION['user']);
                     }
+                    else {
+                        echo "<h3>" . $_SESSION["user"]["mensaje"] . "</h3>";
+                        $_SESSION["user"]["mensaje"] = "";
+                    }
                 }
             ?>
         </div>
         
         <form class="form-container" action="create_user.php" method="post" enctype="multipart/form-data">
-            
+        
+        <!-- SE ESTABLECE UN TAMAÑO MAXIMO PARA EL ARCHIVO A SUBIR (500 KB = 500,000 B) -->
+        <!-- <input type="hidden" name="MAX_FILE_SIZE" value="500000">  -->
         <input type="file" name="avatar" id="avatar" required><br><br>
             
         <label for="usuario">Usuario:</label>

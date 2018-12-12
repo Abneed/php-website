@@ -1,15 +1,15 @@
 <?php
 session_start();
 
-// $servername = "localhost";
-// $username = "root";
-// $password = "";
-// $dbname = "ProgramacionWebDB";
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "ProgramacionWebDB";
 
-$servername = "198.71.236.19";
-$username = "Web2K18";
-$password = "@dm1n1str@d0r";
-$dbname = "ProgramacionWeb";
+// $servername = "198.71.236.19";
+// $username = "Web2K18";
+// $password = "@dm1n1str@d0r";
+// $dbname = "ProgramacionWeb";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -28,8 +28,13 @@ if ($nuevo_imagen == null) {
     $update_sql = "UPDATE acceso SET usuario = '$nuevo_usuario', nombre = '$nuevo_nombre', Imagen = '$ImagenData' WHERE usuario = '$viejo_usuario'";
 }
 
-
-if ($conn->query($update_sql) == TRUE) 
+$File_Size = $_FILES['avatar']['size'];
+if($File_Size > 500000 )
+{
+    $_SESSION["user"]["mensaje"] = "No puedes subir imagenes mayores de 500KB ('$File_Size ')";
+    header( 'Location: update_profile.php' ); 
+}
+else if ($conn->query($update_sql) == TRUE) 
 {
     $result = $conn->query($select_sql);
     while($row = mysqli_fetch_assoc($result))
