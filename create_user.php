@@ -35,8 +35,14 @@ if (mysqli_num_rows($result) > 0)
 }
 else 
 {
+    $File_Size = $_FILES['avatar']['size'];
+    if($File_Size > 500000 )
+    {
+        $_SESSION["user"] = "No puedes subir imagenes mayores de 500KB ('$File_Size ')";
+        header( 'Location: signup.php' ); 
+    }
     // Verificar si la inserción en la tabla de acceso fue exitoso.
-    if ($conn->query($insert_sql) == TRUE) 
+    else if ($conn->query($insert_sql) == TRUE) 
     {
         // Crear la session con el nuevo usuario creado.
         $result = $conn->query($select_sql);
